@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+  <title>Reddit Reader</title>
+</head>
+
+<body>
+   <header>
+    <h1><a href="/">Reddit Reader</a></h1>
+    <h3>Reading: 
+      {% for i in reading %}
+      r/{{i}}
+      {% endfor %}
+      </h3>
+  </header>
+  <main>
+    {% for rdt in reddit_db %}
+      <div>
+        <h3><a href={{rdt['link']}}>{{rdt['title']}}</a></h3>
+        <h4>{{rdt['vote']}} upvotes · r/{{rdt['topic']}}</h4>
+        <hr>
+      </div>
+    {% endfor %}
+  </main>
+</body>
+
+</html>
